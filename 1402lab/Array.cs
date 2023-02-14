@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1402lab
 {
-    class MyArray:ISort,IMath,IOutput
+    class MyArray:ISort,IMath,IOutput,IOutput2,ICalc,ICalc2
     {
         int[] arr;
         public MyArray()
@@ -56,6 +56,61 @@ namespace _1402lab
             return (float)Queryable.Average(arr.AsQueryable());
         }
 
+        public int CountDistinct()
+        {
+            int Counter = 1;
+            Array.Sort(arr);
+            int CurrentNumber = arr[0];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (CurrentNumber != arr[i])
+                {
+                    CurrentNumber = arr[i];
+                    Counter++;
+                }
+            }
+            return Counter;
+        }
+
+        public int EqualToValue(int valueToCompare)
+        {
+            int Counter = 0;
+            foreach(int i in arr)
+            {
+                if (i == valueToCompare)
+                {
+                    Counter++;
+                }
+            }
+            return Counter;
+        }
+
+        public int Greater(int valueToCompare)
+        {
+            int Counter = 0;
+            foreach (int i in arr)
+            {
+                if (i > valueToCompare)
+                {
+                    Counter++;
+                }
+            }
+            return Counter;
+        }
+
+        public int Less(int valueToCompare)
+        {
+            int Counter = 0;
+            foreach (int i in arr)
+            {
+                if (i < valueToCompare)
+                {
+                    Counter++;
+                }
+            }
+            return Counter;
+        }
+
         public int Max()
         {
             return arr.Max();
@@ -89,6 +144,30 @@ namespace _1402lab
         public void Show(string info)
         {
             Console.WriteLine(info);
+        }
+
+        public void ShowEven()
+        {
+            Console.WriteLine();
+            foreach (int i in arr)
+            {
+                if (i % 2==0)
+                {
+                    Console.Write(i+" ");
+                }
+            }
+        }
+
+        public void ShowOdd()
+        {
+            Console.WriteLine();
+            foreach (int i in arr)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.Write(i + " ");
+                }
+            }
         }
 
         public void SortAsc()

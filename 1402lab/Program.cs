@@ -23,6 +23,12 @@ namespace _1402lab
             Console.WriteLine();
             arr.SortDesc();
             arr.Show();
+            arr.ShowEven();
+            arr.ShowOdd();
+            Console.WriteLine();
+            Console.WriteLine(arr.CountDistinct());
+            Console.WriteLine(arr.Greater(3));
+            Console.WriteLine(arr.Less(3));
         }
     }
 }
